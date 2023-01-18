@@ -34,7 +34,7 @@ function TodoForm(props) {
         ref={inputRef}
       />
       <button onClick={handleSubmit} className="todo-button">
-        Add todo
+        Add
       </button>
     </form>
   );

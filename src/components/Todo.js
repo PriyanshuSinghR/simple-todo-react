@@ -1,22 +1,37 @@
 import React from 'react';
-import TodoForm from './TodoForm';
-import { RiCloseCircleLine } from 'react-icons/ri';
 
 const Todo = ({ todos, completeTodo, removeTodo }) => {
   return todos.map((todo, index) => (
     <div
-      className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
-      key={index}
+      className={
+        todo.isComplete ? 'todo-container cont wt' : 'todo-container cont'
+      }
     >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
+      <div
+        className={
+          todo.isComplete
+            ? 'todo-container wt todo-row'
+            : 'todo-container todo-row'
+        }
+        onClick={() => completeTodo(todo.id)}
+      >
+        <div
+          className={todo.isComplete ? 'complete' : ''}
+          onClick={() => completeTodo(todo.id)}
+          key={index}
+        >
+          <span className={todo.isComplete ? 'checked one' : 'one'}></span>
+          <div className="two" key={todo.id}>
+            {todo.text}
+          </div>
+        </div>
       </div>
-      <div className="icons">
-        <RiCloseCircleLine
-          onClick={() => removeTodo(todo.id)}
-          className="delete-icon"
-        />
-      </div>
+      <span
+        onClick={() => removeTodo(todo.id)}
+        className="icons delete-icon three"
+      >
+        x
+      </span>
     </div>
   ));
 };

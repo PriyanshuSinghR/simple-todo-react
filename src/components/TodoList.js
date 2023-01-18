@@ -31,8 +31,10 @@ function TodoList() {
 
   return (
     <>
-      <h1>Todo List</h1>
-      <TodoForm onSubmit={addTodo} />
+      <div className="header">
+        <h1>My To Do List</h1>
+        <TodoForm onSubmit={addTodo} />
+      </div>
       <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} />
     </>
   );
